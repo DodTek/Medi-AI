@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>MediWeb - Patient Details</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/shop-item.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">MediWeb</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+        <h1 class="my-4">{{ username_text }}</h1>
+        <div class="list-group">
+          <a href="/" class="list-group-item">Patient List</a>
+          <a href="/patient_details" class="list-group-item active">Patient Details</a>
+          <a href="/graphs" class="list-group-item">Graphs</a>
+          <a href="/add_users" class="list-group-item">Add Patient Details</a>
+        </div>
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class="card mt-4">
+          <div class="card-body">
+            <h3 class="card-title"><u>Patient Details</u></h3>
+            <p class="card-text">
+                <b>Name:</b> {{ patient['first_name'] }} {{ patient['surname'] }}<br>
+                <b>Email:</b> {{ patient['email'] }}<br>
+                <b>Age:</b> {{ cancer['Age'] }}<br>
+                <b>Sex:</b>
+                    {% if heart_disease['sex'] == '1' or heart_disease['sex'] == 1 %}
+                        M
+                    {% elif heart_disease['sex'] == '0' or heart_disease['sex'] == 0 %}
+                        F
+                    {% endif %}<br>
+                <b>BMI:</b> {{ cancer['BMI'] }}<br>
+                <b>Pregnancies:</b> {{ diabetes['Pregnancies'] }}<br>
+                <b>Blood Pressure:</b> {{ diabetes['BloodPressure'] }}<br>
+                <b>Skin Thickness:</b> {{ diabetes['SkinThickness'] }}<br>
+                <b>Glucose:</b> {{ cancer['Glucose'] }}<br>
+                <b>Insulin:</b> {{ cancer['Insulin'] }}<br>
+                <b>HOMA:</b> {{ cancer['HOMA'] }}<br>
+                <b>Leptin:</b> {{ cancer['Leptin'] }}<br>
+                <b>Adiponectin:</b> {{ cancer['Adiponectin'] }}<br>
+                <b>Resistin:</b> {{ cancer['Resistin'] }}<br>
+                <b>MCP-1:</b> {{ cancer['MCP-1'] }}<br>
+                <b>Chest Pain Type:</b> {{ heart_disease['cp'] }}<br>
+                <b>Resting Blood Pressure:</b> {{ heart_disease['trestbps'] }}<br>
+                <b>Cholesterol:</b> {{ heart_disease['chol'] }}<br>
+                <b>Fasting Blood Sugar:</b> {{ heart_disease['fbs'] }}<br>
+                <b>Resting Electrocardiographic Results:</b> {{ heart_disease['restecg'] }}<br>
+                <b>Maximum Heart Rate Achieved:</b> {{ heart_disease['thalach'] }}<br>
+                <b>Exercise Induced Angina:</b> {{ heart_disease['exang'] }}<br>
+                <b>ST Depression Induced by Exercise Relative to Rest:</b> {{ heart_disease['oldpeak'] }}<br>
+                <b>Slope of the Peak Exercise ST Segment:</b> {{ heart_disease['slope'] }}<br>
+                <b>Number of Major Vessels (0-3) Colored by Flourosopy:</b> {{ heart_disease['ca'] }}<br>
+                <br>
+                <b>Diabetes Prediction:</b> {{ diabetes['prediction'] }}<br>
+                <b>Cancer Prediction:</b> {{ cancer['prediction'] }}<br>
+                <b>Heart Disease Prediction:</b> {{ heart_disease['prediction'] }}<br>
+            </p>
+          </div>
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="page-footer font-small bg-dark fixed-bottom">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; MediWeb</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>MediWeb - Graphs</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/shop-item.css" rel="stylesheet">
+
+    <!-- Diabetes Pie Chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Diabetes Predictions', 'Amount'],
+          ['Share Attributes with Diabetes Patients',     {{ yesDiabetesAmount }}],
+          ['Don\'t Share Attributes with Diabetes Patients', {{ noDiabetesAmount }}],
+        ]);
+
+        var options = {
+          title: 'Diabetes Predictions',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('diabetes_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!-- Cancer Pie Chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Cancer Predictions', 'Amount'],
+          ['Share Attributes with Cancer Patients',     {{ yesCancerAmount }}],
+          ['Don\'t Share Attributes with Cancer Patients', {{ noCancerAmount }}],
+        ]);
+
+        var options = {
+          title: 'Cancer Predictions',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('cancer_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!-- Heart Disease Pie Chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Heart Disease Predictions', 'Amount'],
+          ['Share Attributes with Heart Disease Patients',     {{ yesHeartDiseaseAmount }}],
+          ['Don\'t Share Attributes with Heart Disease Patients', {{ noHeartDiseaseAmount }}],
+        ]);
+
+        var options = {
+          title: 'Heart Disease Predictions',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('heart_disease_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">MediWeb</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+        <h1 class="my-4">{{ username_text }}</h1>
+        <div class="list-group">
+          <a href="/" class="list-group-item">Patient List</a>
+          <a href="patient_details" class="list-group-item">Patient Details</a>
+          <a href="graphs" class="list-group-item active">Graphs</a>
+          <a href="add_users" class="list-group-item">Add Patient Details</a>
+        </div>
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class="card mt-4">
+          <div class="card-body">
+            <h3 class="card-title"><u>Graphs</u></h3>
+            <p class="card-text">
+                <div id="diabetes_chart" style="width: 500px; height: 300px;"></div>
+                <div id="cancer_chart" style="width: 500px; height: 300px;"></div>
+                <div id="heart_disease_chart" style="width: 500px; height: 300px;"></div>
+            </p>
+          </div>
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="page-footer font-small bg-dark fixed-bottom">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; MediWeb</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
