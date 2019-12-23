@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MediAi2</string>
+    <string name="title_activity_tabs">Tabs</string>
+    <string name="tab_text_1">Cancer</string>
+    <string name="tab_text_2">Diabetes</string>
+    <string name="tab_text_3">Heart </string>
+    <string name="tab_text_4">Support</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
